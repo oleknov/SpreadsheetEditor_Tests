@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+	<PropertyGroup>
+		<NoWarn>$(NoWarn);CS3021</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Antlr4" Version="4.6.6" PrivateAssets="all" />
+		<PackageReference Include="Antlr4.Runtime" Version="4.6.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\OOP-lab-1\Core\**\*.cs" Link="Core\%(RecursiveDir)%(Filename)%(Extension)" />
+		<Antlr4 Include="..\OOP-lab-1\Core\Parser\Formula.g4">
+			<CustomToolNamespace>SpreadsheetEditor.Core.Parser</CustomToolNamespace>
+			<Listener>false</Listener>
+			<Visitor>true</Visitor>
+		</Antlr4>
+	</ItemGroup>
+	
+</Project>
